@@ -19,6 +19,7 @@ import service.NoticiaService;
 public class ViewNoticiaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
