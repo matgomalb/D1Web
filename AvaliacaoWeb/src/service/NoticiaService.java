@@ -9,6 +9,7 @@ public class NoticiaService {
 
 	NoticiaDAO dao = new NoticiaDAO();
 	
+	
 	public int criar(Noticia noticia) {
 		dao.insert(noticia);
 		return noticia.getId();

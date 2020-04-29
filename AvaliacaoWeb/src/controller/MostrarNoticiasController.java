@@ -53,6 +53,7 @@ public class MostrarNoticiasController extends HttpServlet {
 						"		</form><form action= DeletarNoticiaController.do methodo=post>"
 						+ "<input id='id' name='id' value="+ noticia.getId() + ">" + " <input type='submit' value='Deletar'>"
 								+ "</div>");
+		
 		}
 		//out.print("<a href=ViewNoticia.do + noticia.getId() + >+ noticia.getTitulo() + </a>");
 		out.print("</body></html>");

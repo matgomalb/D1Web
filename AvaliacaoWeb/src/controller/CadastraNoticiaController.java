@@ -31,6 +31,7 @@ public class CadastraNoticiaController extends HttpServlet {
 		String nDescricao = request.getParameter("descricao");
 		String nTexto = request.getParameter("texto");
 		
+		
 		//instanciar o javabean
 		Noticia noticia = new Noticia();
 		noticia.setId(0);

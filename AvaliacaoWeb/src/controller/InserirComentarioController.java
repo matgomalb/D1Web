@@ -32,6 +32,7 @@ public class InserirComentarioController extends HttpServlet {
 		comentario.setTexto(pSubject);
 		System.out.println("noticia: " + comentario);
 		
+		
 		ComentarioService cs = new ComentarioService();
 		cs.criar(comentario);
 		

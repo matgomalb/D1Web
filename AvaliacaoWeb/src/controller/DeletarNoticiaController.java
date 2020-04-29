@@ -33,6 +33,7 @@ public class DeletarNoticiaController extends HttpServlet {
 		//ns.excluir(noticia);
 		
 		
+		
 		PrintWriter out = response.getWriter();
 		out.print("Essa é a noticia: " + noticia.toString());
 		//ns.excluir(noticia);

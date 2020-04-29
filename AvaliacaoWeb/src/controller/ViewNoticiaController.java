@@ -33,6 +33,7 @@ public class ViewNoticiaController extends HttpServlet {
 		noticia = ns.carregar(id);
 		//comentario = cs.carregar(id);
 		
+		
 		PrintWriter out = response.getWriter();
 		out.println("<html><head>"
 				+ "<style> body {font-family: Arial, Helvetica, sans-serif;}"+

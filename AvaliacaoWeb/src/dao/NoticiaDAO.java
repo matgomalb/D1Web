@@ -47,6 +47,7 @@ public class NoticiaDAO {
 			
 		String delete = "DELETE FROM Noticia WHERE id = ?";
 			
+		
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
 			pst.setInt(1, noticia.getId());
 			pst.execute();
