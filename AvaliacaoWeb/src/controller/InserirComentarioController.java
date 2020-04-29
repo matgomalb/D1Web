@@ -24,12 +24,14 @@ public class InserirComentarioController extends HttpServlet {
 		System.out.println("POST DO COMENTARIO");
 		String pName = request.getParameter("firstname");
 		String pSubject = request.getParameter("subject");
+		int noticiaId = Integer.parseInt(request.getParameter("noticiaId"));
 		
 		//instanciar o javabean
 		Comentario comentario = new Comentario();
 		comentario.setId(0);
 		comentario.setNome(pName);
 		comentario.setTexto(pSubject);
+		comentario.setNoticiaId(noticiaId);
 		System.out.println("noticia: " + comentario);
 		
 		

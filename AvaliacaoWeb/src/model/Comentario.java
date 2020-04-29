@@ -5,7 +5,9 @@ public class Comentario {
 	private int id;
 	private String nome;
 	private String texto;
+	private int noticiaId;
 	
+
 	public Comentario () {}
 	
 	public Comentario (int id, String nome, String texto) {
@@ -31,6 +33,13 @@ public class Comentario {
 	}
 	public void setTexto(String texto) {
 		this.texto = texto;
+	}
+	public int getNoticiaId() {
+		return noticiaId;
+	}
+
+	public void setNoticiaId(int noticiaId) {
+		this.noticiaId = noticiaId;
 	}
 	
 	@Override

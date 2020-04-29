@@ -18,7 +18,7 @@ private Connection conexao;
 	public void insert (Comentario comentario) {
 		System.out.println("Entrou no insert");
 		ComentarioDAO dao = new ComentarioDAO();
-		String inserir = "INSERT INTO Comentario (id, nome, texto)" + "VALUES(?,?,?)";
+		String inserir = "INSERT INTO Comentario (id, nome, texto,fk_noticia_id)" + "VALUES(?,?,?,?)";
 		
 		Comentario not = new Comentario(); 
 		
@@ -26,12 +26,23 @@ private Connection conexao;
 			pst.setInt(1, comentario.getId());
 			pst.setString(2, comentario.getNome());
 			pst.setString(3, comentario.getTexto());
+			pst.setInt(4, comentario.getNoticiaId());
 			
 			not.setId(comentario.getId());
 			not.setNome(comentario.getNome());
 			not.setTexto(comentario.getTexto());
 			
 			pst.execute();
+			
+			String sqlQuery ="SELECT LAST_INSERT_ID()";
+				try(PreparedStatement pst2 = conexao.prepareStatement(sqlQuery);ResultSet rs = pst2.executeQuery();){
+					if(rs.next()) {
+						comentario.setId(rs.getInt(1));
+					}
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+						
 			System.out.println("Insert feito com sucesso");
 			
 		} catch(SQLException ex){ 
@@ -74,10 +85,10 @@ private Connection conexao;
 	
 	public Comentario select (Comentario comentario) {
 		Comentario not = null;
-		String consulta = "SELECT id, nome, texto FROM Comentario WHERE id = ?";
+		String consulta = "SELECT id, nome, texto FROM Comentario WHERE fk_noticia_id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
-			pst.setInt(1, comentario.getId());
+			pst.setInt(1, comentario.getNoticiaId());
 			ResultSet resultado = pst.executeQuery();
 			
 			if(resultado.next()) {

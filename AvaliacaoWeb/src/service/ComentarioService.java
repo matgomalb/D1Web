@@ -23,4 +23,5 @@ public class ComentarioService {
 	public Comentario carregar(Comentario comentario){
 		return dao.select(comentario);
 	}
+	
 }
