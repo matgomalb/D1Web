@@ -74,7 +74,7 @@ private Connection conexao;
 	
 	public Comentario select (Comentario comentario) {
 		Comentario not = null;
-		String consulta = "SELECT id, titulo, descricao, texto FROM Comentario WHERE id = ?";
+		String consulta = "SELECT id, nome, texto FROM Comentario WHERE id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
 			pst.setInt(1, comentario.getId());
@@ -90,7 +90,7 @@ private Connection conexao;
 				not.setId(idNoticia);
 				not.setNome(nome);
 				not.setTexto(texto);
-				System.out.println("Esse é o pais: " + not.toString());
+				System.out.println("Comentario: " + not.toString());
 			}
 			System.out.println("Consulta feita com sucesso");
 			

@@ -21,27 +21,29 @@
 		}
 		.botoes{
 		text-align:center;
+		position:absolute;
 		}
 		</style>
 		<title>Área de Cadastro</title>
 	</head>
 	<body>
-		<h1>Real News</h1>
+	
+		<h1>Real News</h1> 
 		<form action="CadastraNoticiaController.do" method="post">
-			<label for="titulo">Título da Notícia</label>
+			<label for="titulo" >Título da Notícia</label>
 			<input type="text" id="titulo" name="titulo" placeholder="Título..">
 			<label for="titulo">Descrição da Notícia</label>
 			<input type="text" id="descricao" name="descricao" placeholder="Descrição...">
 			<label for="subject">Notícia</label>
 			
 			<textarea id="subject" name="texto" placeholder="Escreva a Notícia.." style="height:170px"></textarea>
-			<div class="botoes">
-			<input type="submit" value="Enviar"/>
+			<div class="botoes" >
+			<input type="submit" value="Enviar" style="margin-top:-20px; margin-left:700px"/>
 			</div>
 		</form>
-		<form action="DeletarNoticiaController.do" method="post">
-			<button type="submit"> Deletar </button>
+		<form action="DeletarNoticiaController.do" method="post" style="position:absolute">
+			<input type="submit" value="Excluir" style="margin-top:-20px; margin-left:599px "/> 
 		</form>
-		<input onclick="window.location.href ='index.html'" type="submit" value="Menu"/>
+		<input onclick="window.location.href ='index.html'" type="submit" value="Menu" style="margin-top:-10px; margin-left:500px " />
 	</body>
 </html>

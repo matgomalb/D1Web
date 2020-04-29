@@ -45,10 +45,10 @@ public class NoticiaDAO {
 	
 	public void delete (Noticia noticia) {
 			
-		String delete = "DELETE FROM Noticia WHERE titulo = ?";
+		String delete = "DELETE FROM Noticia WHERE id = ?";
 			
 		try (PreparedStatement pst = conexao.prepareStatement(delete)){
-			pst.setString(1, noticia.getTitulo());
+			pst.setInt(1, noticia.getId());
 			pst.execute();
 			System.out.println("Noticia excluida");
 			

@@ -15,7 +15,6 @@
 		    margin-right: -50%;
 		    transform: translate(-50%, -50%);
 		}
-		a{background-color: #4169E1;}
 		button {
 		  background-color: #4169E1;
 		  color: white;
@@ -23,6 +22,8 @@
 		  border: none;
 		  cursor: pointer;
 		  text-align:center;
+		  margin:5px;
+		  
 		}
 		</style>
 		<title>Home</title>
@@ -32,6 +33,6 @@
 		<form action="MostrarNoticiasController.do" method="post">
 			<button type="submit">Listar Noticias</button>
 		</form>
-		<button> <a href="cadastraNoticia.html">Cadastrar Noticias</a></button>
+		 <button onclick="window.location.href ='cadastraNoticia.html'">Cadastrar Noticias</button>
 	</body>
 </html>

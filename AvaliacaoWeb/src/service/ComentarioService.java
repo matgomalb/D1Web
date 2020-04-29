@@ -20,7 +20,7 @@ public class ComentarioService {
 		dao.delete(comentario);
 	}
 	
-	public Comentario carregar(Comentario noticia){
-		return dao.select(noticia);
+	public Comentario carregar(Comentario comentario){
+		return dao.select(comentario);
 	}
 }

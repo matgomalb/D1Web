@@ -20,10 +20,7 @@ import service.ComentarioService;
 public class InserirComentarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("POST DO COMENTARIO");
 		String pName = request.getParameter("firstname");
 		String pSubject = request.getParameter("subject");
@@ -38,7 +35,15 @@ public class InserirComentarioController extends HttpServlet {
 		ComentarioService cs = new ComentarioService();
 		cs.criar(comentario);
 		
-		RequestDispatcher view = request.getRequestDispatcher("paginaInicial.html");
+		RequestDispatcher view = request.getRequestDispatcher("index.html");
 		view.forward(request, response);
+
 	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+			}
 }

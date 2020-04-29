@@ -43,7 +43,7 @@ public class CadastraNoticiaController extends HttpServlet {
 		NoticiaService cs = new NoticiaService();
 		cs.criar(noticia);
 		
-		RequestDispatcher view = request.getRequestDispatcher("paginaInicial.html");
+		RequestDispatcher view = request.getRequestDispatcher("index.html");
 		view.forward(request, response);
 	}
 }
