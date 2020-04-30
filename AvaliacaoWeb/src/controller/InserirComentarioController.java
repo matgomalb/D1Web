@@ -26,7 +26,6 @@ public class InserirComentarioController extends HttpServlet {
 		String pSubject = request.getParameter("subject");
 		int noticiaId = Integer.parseInt(request.getParameter("noticiaId"));
 		
-		//instanciar o javabean
 		Comentario comentario = new Comentario();
 		comentario.setId(0);
 		comentario.setNome(pName);
@@ -34,19 +33,10 @@ public class InserirComentarioController extends HttpServlet {
 		comentario.setNoticiaId(noticiaId);
 		System.out.println("noticia: " + comentario);
 		
-		
 		ComentarioService cs = new ComentarioService();
 		cs.criar(comentario);
 		
 		RequestDispatcher view = request.getRequestDispatcher("index.html");
 		view.forward(request, response);
-
 	}
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-			}
 }

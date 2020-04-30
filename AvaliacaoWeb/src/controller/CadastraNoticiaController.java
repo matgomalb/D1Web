@@ -24,15 +24,11 @@ public class CadastraNoticiaController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("POST DO CADASTRO");
-		//doGet(request, response);
-		//String nId = request.getParameter("id");
+		System.out.println("POST DO CADASTRO");;
 		String nTitulo = request.getParameter("titulo");
 		String nDescricao = request.getParameter("descricao");
 		String nTexto = request.getParameter("texto");
 		
-		
-		//instanciar o javabean
 		Noticia noticia = new Noticia();
 		noticia.setId(0);
 		noticia.setTitulo(nTitulo);
@@ -40,7 +36,6 @@ public class CadastraNoticiaController extends HttpServlet {
 		noticia.setTexto(nTexto);
 		System.out.println("noticia: " + noticia);
 		
-		//instanciar o service
 		NoticiaService cs = new NoticiaService();
 		cs.criar(noticia);
 		

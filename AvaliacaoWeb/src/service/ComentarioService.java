@@ -1,7 +1,10 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.ComentarioDAO;
 import model.Comentario;
+import model.Noticia;
 
 public class ComentarioService {
 
@@ -20,8 +23,8 @@ public class ComentarioService {
 		dao.delete(comentario);
 	}
 	
-	public Comentario carregar(Comentario comentario){
-		return dao.select(comentario);
+	public ArrayList<Comentario> carregar(Noticia noticia){
+		return dao.select(noticia);
 	}
 	
 }

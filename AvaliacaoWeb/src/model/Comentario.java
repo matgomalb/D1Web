@@ -44,7 +44,6 @@ public class Comentario {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "{Id: " + getId() + ", Nome: " + getNome() + ", Texto: " + getTexto() + "}";
 	}
 }

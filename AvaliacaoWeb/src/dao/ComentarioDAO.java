@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.Comentario;
+import model.Noticia;
 
 public class ComentarioDAO {
 
@@ -83,15 +85,16 @@ private Connection conexao;
 		}
 	}
 	
-	public Comentario select (Comentario comentario) {
+	public ArrayList<Comentario> select (Noticia noticia) {
+		ArrayList<Comentario> comentario = new ArrayList<Comentario>();
 		Comentario not = null;
 		String consulta = "SELECT id, nome, texto FROM Comentario WHERE fk_noticia_id = ?";
 				
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)){
-			pst.setInt(1, comentario.getNoticiaId());
+			pst.setInt(1, noticia.getId());
 			ResultSet resultado = pst.executeQuery();
 			
-			if(resultado.next()) {
+			while(resultado.next()) {
 				not = new Comentario();
 				
 				int idNoticia = resultado.getInt("id");
@@ -102,13 +105,14 @@ private Connection conexao;
 				not.setNome(nome);
 				not.setTexto(texto);
 				System.out.println("Comentario: " + not.toString());
+				comentario.add(not);
 			}
 			System.out.println("Consulta feita com sucesso");
-			
+			return comentario;
 		} catch(SQLException ex) {	
 			ex.printStackTrace();
 			System.out.println("Falha na consulta");
 		}
-		return not;
+		return comentario;
 	}
 }

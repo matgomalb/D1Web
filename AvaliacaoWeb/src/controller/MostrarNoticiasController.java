@@ -23,39 +23,37 @@ public class MostrarNoticiasController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//doGet(request, response);
 		System.out.println("POST DO LISTAR NOTICIA");
-		
-		
 		Noticia noticia = new Noticia();
 		NoticiaService ns = new NoticiaService();
 		PrintWriter out = response.getWriter();
-		out.print("<html><head>"
-				+ "<style> body {font-family: Arial, Helvetica, sans-serif;background-color: #778899;}" +
-				" input,textarea,button{width: 100%; padding: 12px; border: 1px solid #ccc;"
-				+ " margin-top: 6px; margin-bottom: 16px; resize: vertical;}"
-				+ "div{border-style: outset;background-color: White;}"
-				+ "input[type=submit],button { background-color: #4169E1; color: white; padding: 12px 20px; border: none; cursor: pointer; }"
+		
+		out.print("<html><head>" + 
+				  "<style> body {font-family: Arial, Helvetica, sans-serif;background-color: #778899;}" +
+				  " input,textarea,button{width: 100%; padding: 12px; border: 1px solid #ccc;" +
+				  " margin-top: 6px; margin-bottom: 16px; resize: vertical;}" +
+				  "div{border-style: outset;background-color: White;}" +
+				  "input[type=submit],button { background-color: #4169E1; color: white; padding: 12px 20px; border: none; cursor: pointer; }"
 				+ "</style>" +
-				"<title>Noticia</title><body>");
+				  "<title>Noticia</title><body>");
+		
 		for(Noticia noticia1 : ns.carregarTudo()) {
 			System.out.println("NOTICIA: " + noticia1);
 			noticia = noticia1;
 			out.print("<br><div> <form action= ViewNoticiaController.do methodo=post>" +
 					 "<label for='id'> ID </label>"+
-					 "<input id='id' name='id' value="+ noticia.getId() + ">" +
+					 "<input id='id' name='id' value="+ noticia.getId() + " readonly>" +
 					 "<label for='titulo'> Título </label>"+
-					 "<input id='titulo' value=" + noticia.getTitulo() + ">" + 
+					 "<input id='titulo' value=" + noticia.getTitulo() + " readonly>" + 
 					 "<label for='descricao'> Descrição </label>" +
-					 "<input id='descricao' value=" + noticia.getDescricao() + ">" +
-						"<textarea id='texto' style='height:170px'>" + noticia.getTexto()+ "</textarea>" +
-						"		<input type='submit' value='Comentario'>" + 
-						"		</form><form action= DeletarNoticiaController.do methodo=post>"
-						+ "<Button name='id' value="+ noticia.getId() + "> Deletar </Button>"
-								+ "</form></div>");
-		
+					 "<input id='descricao' value=" + noticia.getDescricao() + " readonly>" +
+					 "<label for='descricao'> Texto </label>" +
+					 "<textarea readonly id='texto' style='height:170px'>" + noticia.getTexto() + "</textarea>" +
+					 "<input type='submit' value='Comentario'>" + 
+					 "</form><form action= DeletarNoticiaController.do methodo=post>" +
+					 "<Button name='id' value="+ noticia.getId() + "> Deletar </Button>" +
+					 "</form></div>");
 		}
-		//out.print("<a href=ViewNoticia.do + noticia.getId() + >+ noticia.getTitulo() + </a>");
 		out.print("</body></html>");
 	}
 }

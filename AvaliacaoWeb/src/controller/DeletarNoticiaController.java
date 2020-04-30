@@ -21,7 +21,6 @@ public class DeletarNoticiaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//doPost(request, response);
 		System.out.println("POST DO DELETAR");
 		int id = Integer.parseInt(request.getParameter("id"));
 		System.out.println("Id Delete: " + id);
@@ -32,8 +31,6 @@ public class DeletarNoticiaController extends HttpServlet {
 		ns.excluir(noticia);
 		//ns.excluir(noticia);
 		
-		
-		
 		PrintWriter out = response.getWriter();
 		out.print("Essa é a noticia: " + noticia.toString());
 		//ns.excluir(noticia);
@@ -41,16 +38,5 @@ public class DeletarNoticiaController extends HttpServlet {
 		
 		RequestDispatcher view = request.getRequestDispatcher("index.html");
 		view.forward(request, response);
-		
 	}
-		
-	
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-		
-}
 }
