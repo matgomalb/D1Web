@@ -11,6 +11,7 @@ public class ConnectionFactory {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Encontrado");
 			
+			
 		}catch(ClassNotFoundException ex) {
 			System.out.println("Drive NÃO Encontrado");
 			ex.printStackTrace();
