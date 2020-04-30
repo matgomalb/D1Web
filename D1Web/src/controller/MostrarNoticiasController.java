@@ -48,7 +48,7 @@ public class MostrarNoticiasController extends HttpServlet {
 					 "<label for='descricao'> Descrição </label>" +
 					 "<input id='descricao' value=" + noticia.getDescricao() + " readonly>" +
 					 "<label for='descricao'> Texto </label>" +
-					 "<textarea readonly id='texto' style='height:170px'>" + noticia.getTexto()+ "</textarea>" +
+					 "<textarea readonly id='texto' style='height:170px'>" + noticia.getTexto() + "</textarea>" +
 					 "<input type='submit' value='Comentario'>" + 
 					 "</form><form action= DeletarNoticiaController.do methodo=post>" +
 					 "<Button name='id' value="+ noticia.getId() + "> Deletar </Button>" +
