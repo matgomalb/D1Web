@@ -43,16 +43,16 @@ public class ViewNoticiaController extends HttpServlet {
 		out.println("<h2>Real News </h2>" +
 				 	"<h3> Titulo: " + noticia.getTitulo() + "</h3>" +
 				 	"<h3> Noticia:</h3>" +
-					"<textarea> " + noticia.getTexto() + "</textarea>");
+					"<textarea readonly> " + noticia.getTexto() + "</textarea>");
 		
 		out.println("<h1>Comentários</h1>");
 		
 		for(Comentario comm : cs.carregar(noticia)) {
 			out.print("<br><div> <form action= ViewNoticiaController.do methodo=post>" +
-					 "<label for='titulo'> Nome </label>"+
-					 "<input id='titulo' value=" + comm.getNome() + ">" +
+					 "<label for='titulo' readonly> Nome </label>"+
+					 "<input readonly id='titulo' value=" + comm.getNome() + ">" +
 					 "<label for='descricao'> Texto </label>" +
-					 "<textarea id='texto' style='height:100px'>" + comm.getTexto()+ "</textarea>" +
+					 "<textarea readonly id='texto' style='height:100px'>" + comm.getTexto()+ "</textarea>" +
 					 "</div>");		
 		}
 		out.println("<h2>Comentários</h2>" +

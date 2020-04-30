@@ -42,13 +42,13 @@ public class MostrarNoticiasController extends HttpServlet {
 			noticia = noticia1;
 			out.print("<br><div> <form action= ViewNoticiaController.do methodo=post>" +
 					 "<label for='id'> ID </label>"+
-					 "<input id='id' name='id' value="+ noticia.getId() + ">" +
+					 "<input id='id' name='id' value="+ noticia.getId() + " readonly>" +
 					 "<label for='titulo'> Título </label>"+
-					 "<input id='titulo' value=" + noticia.getTitulo() + ">" + 
+					 "<input id='titulo' value=" + noticia.getTitulo() + " readonly>" + 
 					 "<label for='descricao'> Descrição </label>" +
-					 "<input id='descricao' value=" + noticia.getDescricao() + ">" +
+					 "<input id='descricao' value=" + noticia.getDescricao() + " readonly>" +
 					 "<label for='descricao'> Texto </label>" +
-					 "<textarea id='texto' style='height:170px'>" + noticia.getTexto()+ "</textarea>" +
+					 "<textarea readonly id='texto' style='height:170px'>" + noticia.getTexto()+ "</textarea>" +
 					 "<input type='submit' value='Comentario'>" + 
 					 "</form><form action= DeletarNoticiaController.do methodo=post>" +
 					 "<Button name='id' value="+ noticia.getId() + "> Deletar </Button>" +
